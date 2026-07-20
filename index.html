@@ -2,82 +2,59 @@
 <html lang="en">
   <head>
     <!-- Google tag (gtag.js) -->
-    <script
-      async
-      src="https://www.googletagmanager.com/gtag/js?id=G-DDHNRP7HGS"
-    ></script>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-DDHNRP7HGS"></script>
     <script>
       window.dataLayer = window.dataLayer || [];
-      function gtag() {
-        dataLayer.push(arguments);
-      }
+      function gtag() { dataLayer.push(arguments); }
       gtag("js", new Date());
-
       gtag("config", "G-DDHNRP7HGS");
     </script>
-    <meta name="google-adsense-account" content="ca-pub-2457395633204522">
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="google-adsense-account" content="ca-pub-2457395633204522" />
     <title>Scribd Viewer JS</title>
+    <link rel="stylesheet" href="web/style.css" />
   </head>
   <body>
-    <h1>Scribd Viewer JS</h1>
-    <h4>For educational purposes only, no warranty provided.</h4>
+    <main class="page-shell">
+      <header class="site-header">
+        <a class="brand" href="/" aria-label="Scribd Viewer home"><span class="brand-mark" aria-hidden="true">S</span><span>Scribd Viewer</span></a>
+        <button class="theme-toggle" id="themeToggle" type="button" aria-label="Switch to dark mode" aria-pressed="false"><span class="theme-icon-light" aria-hidden="true">☀</span><span class="theme-icon-dark" aria-hidden="true">☾</span></button>
+      </header>
 
-    <div class="form">
-      <form id="form">
-        <h2>Document Link:</h2>
-        <input
-          type="url"
-          name="url"
-          id="scribd_link"
-          placeholder="https://www.scribd.com/document/"
-          pattern="^https://www.scribd.com/document/[0-9]{9}/.+$"
-          minlength="45"
-          required
-        />
-        <button type="submit" id="submit">Submit</button>
-      </form>
-    </div>
+      <section class="hero" aria-labelledby="page-title">
+        <p class="eyebrow">DOCUMENT TOOL</p>
+        <h1 id="page-title">Open a document link with ease.</h1>
+        <p class="intro">Paste a Scribd document URL to generate its viewer link.</p>
+      </section>
 
-    <h3>Output:</h3>
+      <section class="tool-card" aria-labelledby="form-title">
+        <form id="form">
+          <label id="form-title" for="scribd_link">Document URL</label>
+          <div class="form-controls">
+            <input type="url" name="url" id="scribd_link" placeholder="https://www.scribd.com/document/..." pattern="^https://www.scribd.com/document/[0-9]{9}/.+$" minlength="45" autocomplete="url" required />
+            <button type="submit" id="submit">Generate <span aria-hidden="true">→</span></button>
+          </div>
+          <p class="field-hint">Use a standard Scribd document URL.</p>
+        </form>
 
-    <a id="outputLink" href="" target="_blank" rel="noopener noreferrer"
-      ><p id="output"></p
-    ></a>
+        <div class="result" id="result" hidden aria-live="polite">
+          <div class="result-heading"><span class="success-icon" aria-hidden="true">✓</span><div><h2>Your viewer link is ready</h2><p>Open it in a new tab or copy it for later.</p></div></div>
+          <p class="generated-link"><span id="output"></span></p>
+          <div class="result-actions"><button class="button-secondary" id="copyButton" type="button">Copy link</button><a class="button-primary" id="outputLink" href="" target="_blank" rel="noopener noreferrer">Open in new tab <span aria-hidden="true">↗</span></a></div>
+        </div>
+      </section>
 
-    <h3>
-      Project homepage:
-      <a
-        href="https://github.com/sussynk/Scribd-Viewer"
-        target="_blank"
-        rel="noopener noreferrer"
-        >GitHub</a
-      >
-    </h3>
+      <section class="viewer-card" id="viewerCard" hidden aria-labelledby="viewer-title">
+        <div class="viewer-header"><div><p class="eyebrow">EMBEDDED VIEWER</p><h2 id="viewer-title">Document preview</h2></div><span class="viewer-status">Loading…</span></div>
+        <iframe id="documentViewer" title="Generated document viewer" loading="lazy" allowfullscreen></iframe>
+      </section>
 
-    <h3>Check out my other projects:</h3>
-    <ul>
-      <li>
-        <a
-          href="https://github.com/sussynk/qrcodegen"
-          rel="noopener noreferrer"
-          target="_blank"
-          >QRcodegen (Python based QR Code Generator, offline, no ads)</a
-        >
-      </li>
-    </ul>
+      <aside class="notice"><span aria-hidden="true">ⓘ</span><p>For educational purposes only. Please ensure your use complies with applicable laws and content terms.</p></aside>
 
-    <footer>
-      (c) clemedev - All Right Reserve | This pages uses Google Analytics, by
-      visiting this site, you automatically consented to data collections by
-      Google Analytics
-    </footer>
-    <script
-      async
-      src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2457395633204522"
-      crossorigin="anonymous"
-    ></script>
+      <footer><span>© clemedev</span><nav aria-label="Footer navigation"><a href="https://github.com/sussynk/Scribd-Viewer" target="_blank" rel="noopener noreferrer">GitHub</a><a href="https://github.com/sussynk/qrcodegen" target="_blank" rel="noopener noreferrer">QRcodegen</a></nav></footer>
+    </main>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2457395633204522" crossorigin="anonymous"></script>
     <script src="web/script.js"></script>
   </body>
 </html>
